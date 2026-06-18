@@ -22,19 +22,11 @@ export interface WeatherCurrent {
   visibilidade: number | null
 }
 
-/** Um ponto da serie temporal usada no grafico de historico. */
+/** Um ponto da serie temporal usada nos graficos de historico. */
 export interface WeatherHistoryPoint {
   data: string
   temperatura: number
   umidade: number
   velocidade_vento: number
-}
-
-/** Ultima leitura de uma capital, usada no grafico 3D comparativo entre todas. */
-export interface ComparativoItem {
-  nm_cidade: string
-  uf: string
-  temperatura: number
-  umidade: number
-  data: string
+  pressao: number
 }

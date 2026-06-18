@@ -1,7 +1,7 @@
 // Cliente HTTP tipado para a API do backend. Usa caminhos relativos ("/api/...") porque
 // tanto o proxy do Vite (dev) quanto o Nginx (producao) encaminham essas chamadas para
 // o backend FastAPI -- o frontend nunca precisa saber o host/porta real da API.
-import type { Capital, ComparativoItem, WeatherCurrent, WeatherHistoryPoint } from './types'
+import type { Capital, WeatherCurrent, WeatherHistoryPoint } from './types'
 
 /** Faz o fetch e lanca um erro descritivo se a resposta nao for 2xx. */
 async function buscarJson<T>(caminho: string): Promise<T> {
@@ -24,8 +24,4 @@ export function getWeatherHistory(nmCidade: string, limit = 50): Promise<Weather
   return buscarJson<WeatherHistoryPoint[]>(
     `/api/weather/history/${encodeURIComponent(nmCidade)}?limit=${limit}`,
   )
-}
-
-export function getComparativo(): Promise<ComparativoItem[]> {
-  return buscarJson<ComparativoItem[]>('/api/weather/comparativo')
 }

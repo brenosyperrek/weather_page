@@ -23,13 +23,14 @@ export default function CurrentWeatherCard({ cidadeSelecionada }: Props) {
   }, [cidadeSelecionada])
 
   // Itens exibidos nos cards: extraidos em lista para evitar repetir o mesmo markup
-  // quatro vezes (temperatura, umidade, vento, pressao).
+  // quatro vezes (temperatura, umidade, vento, pressao). Cada parametro tem sua propria
+  // cor Gruvbox, para o painel ficar colorido em vez de monocromatico.
   const itens = clima
     ? [
-        { icone: Thermometer, rotulo: 'Temperatura', valor: `${clima.temperatura.toFixed(1)}°C` },
-        { icone: Droplets, rotulo: 'Umidade', valor: `${clima.umidade}%` },
-        { icone: Wind, rotulo: 'Vento', valor: `${clima.velocidade_vento.toFixed(1)} m/s` },
-        { icone: Gauge, rotulo: 'Pressão', valor: `${clima.pressao} hPa` },
+        { icone: Thermometer, rotulo: 'Temperatura', valor: `${clima.temperatura.toFixed(1)}°C`, cor: '#ea6962' },
+        { icone: Droplets, rotulo: 'Umidade', valor: `${clima.umidade}%`, cor: '#7daea3' },
+        { icone: Wind, rotulo: 'Vento', valor: `${clima.velocidade_vento.toFixed(1)} m/s`, cor: '#d3869b' },
+        { icone: Gauge, rotulo: 'Pressão', valor: `${clima.pressao} hPa`, cor: '#d8a657' },
       ]
     : []
 
@@ -39,10 +40,10 @@ export default function CurrentWeatherCard({ cidadeSelecionada }: Props) {
         Agora em <span className="text-accent">{cidadeSelecionada}</span>
       </h2>
 
-      {carregando && <p className="text-center text-white/50">Carregando...</p>}
+      {carregando && <p className="text-center text-muted">Carregando...</p>}
 
       {!carregando && !clima && (
-        <p className="text-center text-white/50">Sem dados disponiveis para esta cidade.</p>
+        <p className="text-center text-muted">Sem dados disponiveis para esta cidade.</p>
       )}
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -54,9 +55,9 @@ export default function CurrentWeatherCard({ cidadeSelecionada }: Props) {
             transition={{ duration: 0.5, delay: indice * 0.08 }}
             className="glass-card flex flex-col items-center gap-2 px-4 py-6"
           >
-            <item.icone className="h-6 w-6 text-accent" />
+            <item.icone className="h-6 w-6" style={{ color: item.cor }} />
             <span className="text-2xl font-semibold">{item.valor}</span>
-            <span className="text-xs text-white/50">{item.rotulo}</span>
+            <span className="text-xs text-muted">{item.rotulo}</span>
           </motion.div>
         ))}
       </div>

@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 
 class Capital(BaseModel):
-    """Uma capital brasileira, com a posicao geografica usada pelo globo 3D e a UF do dropdown."""
+    """Uma capital brasileira, com a posicao geografica e a UF usadas pelo dropdown de selecao."""
 
     nm_cidade: str
     uf: str
@@ -28,19 +28,10 @@ class WeatherCurrent(BaseModel):
 
 
 class WeatherHistoryPoint(BaseModel):
-    """Um ponto da serie temporal usada no grafico de historico (2D, animado)."""
+    """Um ponto da serie temporal usada nos graficos de historico (2D, animados)."""
 
     data: datetime
     temperatura: float
     umidade: int
     velocidade_vento: float
-
-
-class ComparativoItem(BaseModel):
-    """Ultima leitura de uma capital, usada no grafico 3D que compara todas as 27 ao mesmo tempo."""
-
-    nm_cidade: str
-    uf: str
-    temperatura: float
-    umidade: int
-    data: datetime
+    pressao: int

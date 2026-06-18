@@ -19,14 +19,14 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-2 text-sm font-semibold tracking-wide">
-          <CloudSun className="h-5 w-5 text-accent" />
+          <CloudSun className="h-5 w-5 text-gruvbox-yellow" />
           <span>Clima das Capitais</span>
         </div>
         <a
-          href="#globo"
-          className="text-sm text-white/70 transition-colors hover:text-white"
+          href="#historico"
+          className="text-sm text-muted transition-colors hover:text-gruvbox-yellow"
         >
-          Explorar o mapa
+          Ver histórico
         </a>
       </div>
     </nav>

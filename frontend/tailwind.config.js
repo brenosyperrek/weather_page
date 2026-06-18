@@ -4,27 +4,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paleta neutra e quase-preta, inspirada nas paginas de produto da Apple no
-        // modo escuro (apple.com/macbook-pro, keynote): preto profundo de fundo,
-        // cinzas neutros para os cards de vidro.
+        // Paleta exata do tema Gruvbox Material em uso neste computador
+        // (~/.config/omarchy/current/theme/colors.toml), a mesma do wallpaper com os
+        // triangulos coloridos -- fundo quente e escuro, em vez do preto puro anterior.
         surface: {
-          950: '#000000',
-          900: '#0a0a0c',
-          800: '#141417',
-          700: '#1f1f23',
-          600: '#2c2c30',
+          950: '#1d2021',
+          900: '#282828',
+          800: '#3c3836',
+          700: '#504945',
+          600: '#665c54',
         },
-        // Azul "Apple system blue", usado como cor de acento principal (links, botoes,
-        // marcador ativo no globo).
+        // Acento principal (links, foco, destaque de cidade) = "accent" do tema.
         accent: {
-          DEFAULT: '#0a84ff',
-          soft: '#5ac8fa',
+          DEFAULT: '#7daea3',
+          soft: '#89b482',
+        },
+        // Texto secundario quente (em vez de branco com opacidade).
+        muted: '#a89984',
+        // Cores vivas do Gruvbox, usadas para colorir cada parametro meteorologico e os
+        // triangulos decorativos inspirados no wallpaper.
+        gruvbox: {
+          red: '#ea6962',
+          green: '#a9b665',
+          yellow: '#d8a657',
+          blue: '#7daea3',
+          purple: '#d3869b',
+          aqua: '#89b482',
+          orange: '#d65d0e',
+          fg: '#d4be98',
         },
       },
       fontFamily: {
-        // -apple-system / BlinkMacSystemFont fazem o navegador usar a fonte do sistema
-        // (San Francisco) em Mac/iOS; Inter e o fallback para outras plataformas.
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fade-in 0.8s ease-out forwards',

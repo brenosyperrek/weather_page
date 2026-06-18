@@ -64,6 +64,7 @@ def obter_historico(
             temperatura=linha.temperatura,
             umidade=linha.umidade,
             velocidade_vento=linha.velocidade_vento,
+            pressao=linha.pressao,
         )
         for linha in linhas
     ]

@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[oc]
+.venv
+backend/.venv
+*.egg-info
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/build/
+
+# Variaveis de ambiente com credenciais reais (so .env.example e commitado)
+.env
+
+# Sistema
+.DS_Store

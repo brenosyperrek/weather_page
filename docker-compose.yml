@@ -1,0 +1,35 @@
+# Orquestra os dois containers da aplicacao (backend FastAPI + frontend Nginx) e os
+# conecta a rede Docker externa onde o Postgres do pipeline_dados (container
+# "postgres18") ja esta disponivel.
+services:
+  backend:
+    build: ./backend
+    env_file:
+      - .env
+    environment:
+      # No Docker, o host do banco e o nome do container na rede externa, nao "localhost".
+      WEATHER_DB_HOST: ${WEATHER_DB_HOST:-postgres18}
+    ports:
+      # Exposto tambem no host para facilitar debug (curl localhost:8000/...); o
+      # frontend, dentro do compose, chama pelo nome do servico "backend".
+      - "8000:8000"
+    networks:
+      - pipeline_dados_net
+      - default
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - default
+
+networks:
+  # Rede criada pelo projeto pipeline_dados (docker network create, ou criada
+  # automaticamente pelo docker compose dele) -- e onde o container "postgres18" vive.
+  pipeline_dados_net:
+    external: true
+  default:
+    name: weather_page_net

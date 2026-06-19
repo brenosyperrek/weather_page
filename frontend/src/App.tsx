@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CitySelector from './components/CitySelector'
+import MapaSection from './components/MapaSection'
 import CurrentWeatherCard from './components/CurrentWeatherCard'
 import HistoryChartSection from './components/HistoryChartSection'
 import Footer from './components/Footer'
@@ -33,6 +34,12 @@ export default function App() {
         />
       </div>
 
+      <MapaSection
+        capitais={capitais}
+        cidadeSelecionada={cidadeSelecionada}
+        aoSelecionar={setCidadeSelecionada}
+      />
+      <div className="section-divider mx-auto max-w-5xl" />
       <CurrentWeatherCard cidadeSelecionada={cidadeSelecionada} />
       <div className="section-divider mx-auto max-w-5xl" />
       <HistoryChartSection cidadeSelecionada={cidadeSelecionada} />

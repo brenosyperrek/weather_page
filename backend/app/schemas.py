@@ -35,3 +35,16 @@ class WeatherHistoryPoint(BaseModel):
     umidade: int
     velocidade_vento: float
     pressao: int
+
+
+class WeatherAggregatedPoint(BaseModel):
+    """Um ponto agregado (media do periodo) usado nos graficos diario/semanal/mensal."""
+
+    periodo: datetime
+    temperatura_media: float
+    temperatura_min: float
+    temperatura_max: float
+    umidade_media: float
+    pressao_media: float
+    velocidade_vento_media: float
+    visibilidade_media: float | None = None

@@ -8,6 +8,7 @@ import CitySelector from './components/CitySelector'
 import MapaSection from './components/MapaSection'
 import CurrentWeatherCard from './components/CurrentWeatherCard'
 import HistoryChartSection from './components/HistoryChartSection'
+import AggregatedChartSection from './components/AggregatedChartSection'
 import Footer from './components/Footer'
 import { getCapitais } from './api'
 import type { Capital } from './types'
@@ -43,6 +44,8 @@ export default function App() {
       <CurrentWeatherCard cidadeSelecionada={cidadeSelecionada} />
       <div className="section-divider mx-auto max-w-5xl" />
       <HistoryChartSection cidadeSelecionada={cidadeSelecionada} />
+      <div className="section-divider mx-auto max-w-5xl" />
+      <AggregatedChartSection cidadeSelecionada={cidadeSelecionada} />
 
       <Footer />
     </div>

@@ -61,6 +61,7 @@ para depuração.
 | `GET /api/capitais` | Lista as capitais com posição geográfica mais recente conhecida |
 | `GET /api/weather/current/{nm_cidade}` | Última leitura meteorológica da cidade |
 | `GET /api/weather/history/{nm_cidade}?limit=50` | Série temporal da cidade, mais antigo → mais recente |
+| `GET /api/weather/aggregated/{nm_cidade}?granularidade=dia\|semana\|mes&limit=30` | Histórico agregado (média; min/máx para temperatura) por dia/semana/mês |
 | `GET /api/weather/comparativo` | Última leitura de todas as capitais, para o gráfico 3D |
 | `GET /health` | Healthcheck |
 

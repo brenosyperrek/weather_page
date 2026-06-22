@@ -30,3 +30,18 @@ export interface WeatherHistoryPoint {
   velocidade_vento: number
   pressao: number
 }
+
+/** Granularidade de agregacao temporal usada nos graficos de evolucao por periodo. */
+export type Granularidade = 'dia' | 'semana' | 'mes'
+
+/** Um ponto agregado (media do periodo; min/max para temperatura). */
+export interface WeatherAggregatedPoint {
+  periodo: string
+  temperatura_media: number
+  temperatura_min: number
+  temperatura_max: number
+  umidade_media: number
+  pressao_media: number
+  velocidade_vento_media: number
+  visibilidade_media: number | null
+}

@@ -31,6 +31,15 @@ export interface WeatherHistoryPoint {
   pressao: number
 }
 
+/** Populacao residente, area territorial e densidade demografica de uma capital. */
+export interface Populacao {
+  nm_cidade: string
+  uf: string
+  populacao: number
+  area_km2: number
+  densidade_demografica: number
+}
+
 /** Granularidade de agregacao temporal usada nos graficos de evolucao por periodo. */
 export type Granularidade = 'dia' | 'semana' | 'mes'
 

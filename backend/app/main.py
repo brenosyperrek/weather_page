@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
-from app.routers import capitais, weather
+from app.routers import capitais, populacao, weather
 
 app = FastAPI(
     title="Weather Page API",
@@ -23,6 +23,7 @@ app.add_middleware(
 
 app.include_router(capitais.router)
 app.include_router(weather.router)
+app.include_router(populacao.router)
 
 
 @app.get("/health", tags=["health"])

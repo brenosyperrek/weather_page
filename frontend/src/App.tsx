@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CitySelector from './components/CitySelector'
 import MapaSection from './components/MapaSection'
+import PopulacaoChartSection from './components/PopulacaoChartSection'
 import CurrentWeatherCard from './components/CurrentWeatherCard'
 import HistoryChartSection from './components/HistoryChartSection'
 import AggregatedChartSection from './components/AggregatedChartSection'
@@ -40,6 +41,8 @@ export default function App() {
         cidadeSelecionada={cidadeSelecionada}
         aoSelecionar={setCidadeSelecionada}
       />
+      <div className="section-divider mx-auto max-w-5xl" />
+      <PopulacaoChartSection cidadeSelecionada={cidadeSelecionada} />
       <div className="section-divider mx-auto max-w-5xl" />
       <CurrentWeatherCard cidadeSelecionada={cidadeSelecionada} />
       <div className="section-divider mx-auto max-w-5xl" />

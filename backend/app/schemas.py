@@ -37,6 +37,16 @@ class WeatherHistoryPoint(BaseModel):
     pressao: int
 
 
+class Populacao(BaseModel):
+    """Populacao residente, area territorial e densidade demografica de uma capital."""
+
+    nm_cidade: str
+    uf: str
+    populacao: int
+    area_km2: float
+    densidade_demografica: float
+
+
 class WeatherAggregatedPoint(BaseModel):
     """Um ponto agregado (media do periodo) usado nos graficos diario/semanal/mensal."""
 
